@@ -1,0 +1,20 @@
+<ng-container *ngIf="todo">
+  <li
+    class="list-group-item"
+    [ngClass]="{
+      'list-group-item-dark': todo.status !== 'Complete' && isEven,
+      'list-group-item-success': todo.status === 'Complete'
+    }"
+    (click)="changeStatus()"
+  >
+    <div class="row">
+      <div class="col-10">{{ todoIndex }} - {{ todo.label }}</div>
+      <div class="col-1">
+        <button (click)="editTodo()">Edit</button>
+      </div>
+      <div class="col-1">
+        <button (click)="removeTodo()">Remove</button>
+      </div>
+    </div>
+  </li>
+</ng-container>
